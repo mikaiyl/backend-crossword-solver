@@ -14,12 +14,14 @@ def main():
         words = f.read().split()
 
     test_word = raw_input(
-        'Please enter a word to solve.\nUse spaces to signify unknown letters: ').lower()
+        '''Please enter a word to solve.\n
+        Use spaces to signify unknown letters: ''').lower()
 
     # YOUR ADDITIONAL CODE HERE
     word_re = re.compile(test_word.replace(' ', '.'))
-    match_array = filter(lambda w: len(test_word) == len(w) and word_re.match(w), words )
-    print( '\n'.join(match_array))
+    match_array = filter(lambda w: len(test_word) == len(w) and
+                         word_re.match(w), words)
+    print('\n'.join(match_array))
 
 
 if __name__ == '__main__':
