@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 """Crossword Solver Program"""
 
+import re
+
 __author__ = "???"
 
 # YOUR HELPER FUNCTION GOES HERE
@@ -15,7 +17,9 @@ def main():
         'Please enter a word to solve.\nUse spaces to signify unknown letters: ').lower()
 
     # YOUR ADDITIONAL CODE HERE
-    raise NotImplementedError('Please complete this')
+    word_re = re.compile(test_word.replace(' ', '.'))
+    match_array = filter(lambda w: len(test_word) == len(w) and word_re.match(w), words )
+    print( '\n'.join(match_array))
 
 
 if __name__ == '__main__':
